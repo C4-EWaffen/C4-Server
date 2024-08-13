@@ -23,4 +23,5 @@ Start der Installation.
 - apt update -y
 - apt full-upgrade -y
 
-
+### C4-Server Starten
+Mit dem Punkt 2 in der Auswahl, kann die Umgebung gestartet werden. 
