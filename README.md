@@ -20,8 +20,10 @@ Automatische Server installation und Bereitschaft.
 - Remote
 
 Start der Installation. 
-- apt update -y
-- apt full-upgrade -y
+- sudo apt update -y
+- sudo apt full-upgrade -y
 
 ### C4-Server Starten
 Mit dem Punkt 2 in der Auswahl, kann die Umgebung gestartet werden. 
+
+Über der IP-ADRESSE/Hostname:5000 kann mittels Browser auf die C4-WebAnwendungen zugegriffen werden. 
