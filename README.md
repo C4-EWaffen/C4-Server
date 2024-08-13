@@ -18,3 +18,7 @@ Die Verschiedenen Server werden mittels c4_server.py gestartet, wenn sie noch ni
 Automatische Server installation und Bereitschaft. 
 - Lokal
 - Remote
+
+Start der Installation. 
+- apt update -y
+- apt full-upgrade -y
