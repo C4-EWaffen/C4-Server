@@ -14,3 +14,7 @@ Die Verschiedenen Server werden mittels c4_server.py gestartet, wenn sie noch ni
 
 ## C4-Server_Initialisierung
 ### c4-server_init.sh
+
+Automatische Server installation und Bereitschaft. 
+- Lokal
+- Remote
