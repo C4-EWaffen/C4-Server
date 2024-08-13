@@ -5,7 +5,8 @@ Einfacher Script, welcher unterschiedliche Server startet und den Zugriff auf di
 
 - HTTP/HTTPS Server
 - FTP/FTPS Server
-- Proxy-Server
+- MySQL/SQLite-Server 
+- Proxy/Reverse-Proxy-Server
 - Onion-Share
 
 Die Verschiedenen Server werden mittels c4_server.py gestartet, wenn sie noch nicht installiert sind. Es sollte wieder eine Terminal Version und eine GUI-Anwendung vorhanden sein, um die Server Verknüpfungen zu erstellen und Verwalten. 
