@@ -22,3 +22,5 @@ Automatische Server installation und Bereitschaft.
 Start der Installation. 
 - apt update -y
 - apt full-upgrade -y
+
+
