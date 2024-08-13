@@ -11,3 +11,6 @@ Einfacher Script, welcher unterschiedliche Server startet und den Zugriff auf di
 - Onion-Share
 
 Die Verschiedenen Server werden mittels c4_server.py gestartet, wenn sie noch nicht installiert sind. Es sollte wieder eine Terminal Version und eine GUI-Anwendung vorhanden sein, um die Server Verknüpfungen zu erstellen und Verwalten. 
+
+## C4-Server_Initialisierung
+### c4-server_init.sh
