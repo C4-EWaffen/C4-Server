@@ -1,7 +1,7 @@
 # C4-Server Umgebung
 ![tower-31235_960_720-645792324](https://github.com/user-attachments/assets/d270746b-56af-40b1-ae0f-c16a5bb5d42e)
 
-## Übersicht der C4-Server Anwendung und dessen Funktionen 
+# Übersicht C4-Server
 Einfacher Script, welcher unterschiedliche Server startet und den Zugriff auf die C4-Anwendungen bereit stellt. Über diese Verbindungen sollten Daten von z.B dem C4-Terminal Script an den C&C Server übertragen werden und die Persistens der Agententen erfolgen. Zu Beginn sollte ein http/https Server installiert werden und gestartet werden können. Des Weiteren, sollten der Proxy-Server gestartet werden nachdem dieser Installiert wurde. Die wichtigsten Funktionen sind die Kommunikation mit den Agenten, sowie aller C4-Software Komponenten. Die Agenten können sich nach dem Start der sysget Datei an dem C&C-Server anmelden und die ersten Informationen übertragen. Die C4-Server Anwendung sollte auch das einrichten eines Dienstes automatisch ausführen und starten. 
 
 - HTTP/HTTPS Server
@@ -12,14 +12,14 @@ Einfacher Script, welcher unterschiedliche Server startet und den Zugriff auf di
 
 Die Verschiedenen Server werden mittels c4_server.py gestartet, wenn sie noch nicht installiert sind. Es sollte wieder eine Terminal Version und eine GUI-Anwendung vorhanden sein, um die Server Verknüpfungen zu erstellen und Verwalten. 
 
-# C4-Server_Initialisierung
-### c4-server_init.sh
-
-Automatische Server installation und Bereitschaft. 
+# C4-Server Initialisierung
+### Automatische Server installation und Bereitschaft. 
 - Lokal
 - Remote
 
-Start der Installation. 
+
+
+### Start der Installation. 
 - sudo apt update -y
 - sudo apt full-upgrade -y
 
@@ -40,3 +40,15 @@ Python Anwendung mit GUI, welche die ganze C4-Umgebung mittels Button starten un
 
 # Der C4-Webserver
 ![himars](https://github.com/user-attachments/assets/c3189d09-1f51-45c9-a05b-7c4cc95982ab)
+Der C4-Webserver dient als grafische Schnittstelle zur C4-Server Umgebung. Die Webseiten sind unterteilt in die 
+## Startseite
+### webserver.html
+Bestehend aus Logo, Überschrift, Zusammenfassung der Übersicht, Menü und ganz wichtig, einer Übersicht der Statistiken aus der C4-Umgebung.
+
+## Agenten & Hosts
+### agents-hosts.html
+Auflistung und Steuerung der Agenten soll die Remote-Administration ermöglichen und erleichtern.
+
+## C4-Krypto
+### c4-crypto.html
+Ein Teil der C4-Krypto Umgebung ist die Ver/Entschlüsselung, Codierung. Ein anderer ist die Transaktions-Verwaltung, Lagerung von Elektronischen Geldmitteln, sowie der Überweisung. Ziel ist die Verwaltung der Geschäftsprozesse, inbegriffen die Verwaltung der Kunden in Bezug Sicherer Kommunikation zur Remote-Administration, Sicherer Austausch von Informationen und Daten. 
