@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C4-Server</title>
+    <link rel="stylesheet" href="c4-style.css"> <!-- Globaler Stil -->
+    <script src="c4-scripts.js"></script> <!-- JavaScript-Funktionen -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Storage</title>
+    <style>
+        body {
+            background-color: black;
+            color: limegreen;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px; /* Add padding to separate content from the edges */
+        }
+
+        h2 {
+            text-align: left; /* Left-align the heading */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>C4-Krypto</h1>
+
+    <!-- Add your content here, e.g., a list of stored keys -->
+
+    <div class="wallet-management">
+    <h2>C4-Wallet Management</h2>
+    <div class="wallet-grid">
+        <div>
+            <h3>Wallet erstellen/einbinden</h3>
+            <button onclick="createWallet()">Neue Wallet erstellen</button>
+            <button onclick="importWallet()">Wallet einbinden</button>
+            <button onclick="recoverWallet()">Wallet wiederherstellen</button>
+        </div>
+        <div>
+            <h3>Wallets für Agenten</h3>
+            <button onclick="createAgentWallet()">Agenten-Wallet erstellen</button>
+            <p>Agenten-Wallet Status: <span id="agent-wallet-status">3 aktiv</span></p>
+        </div>
+    </div>
+    <ul>
+        <li>Key1: 0123456789abcdef</li>
+        <li>Key2: fedcba9876543210</li>
+        <!-- Add more items as needed -->
+    </ul>
+</div>
+
+    <footer>
+        <p>Contact Information:</p>
+        <!-- Add your contact information here -->
+        <p>Email: your@email.com</p>
+        <p>Crypto: onoqnvconqonvoqbnqohnoqhneov</p>
+
+    </footer>
+</body>
+
+</html>

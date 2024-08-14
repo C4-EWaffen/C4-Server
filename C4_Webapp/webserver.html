@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C4-Server</title>
+    <link rel="stylesheet" href="c4-style.css"> <!-- Globaler Stil -->
+    <script src="c4-scripts.js"></script> <!-- JavaScript-Funktionen -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C4-Server</title>
+    <style>
+        body {
+            background-color: black;
+            color: limegreen;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .logo {
+            width: 400px;
+        }
+
+        .welcome-text {
+            max-width: 50%;
+            margin-left: 20px;
+            text-align: left;
+        }
+
+        nav {
+            margin-top: 20px;
+            background-color: #4B5320;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            margin: 0 10px;
+            color: limegreen;
+            text-decoration: none;
+        }
+
+        .status, .connections {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4B5320;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .connections ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .connections li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>C4-Server</h1>
+
+    <nav>
+        <a href="webserver.html">C4-Start</a>
+        <a href="c4-config.html">C4-Konfiguration</a>
+        <a href="connections.html">Network&Connections</a>
+        <a href="keystorage.html">Krypto-Area</a>
+        <a href="devices.html">Agents&Hosts</a>
+        <a href="recon.html">Aufklärung&Hosts</a>
+        <a href="alarmanlage.html">C4-Alarmanlage</a>
+    </nav>
+
+    <div class="content">
+        <img class="logo" src="himars.png" alt="Himars Logo">
+        <div class="welcome-text">
+            <p>Webserver kommunitiert mittels Python oder Shellscript und den Anwendungen ngrok, Apache, nginx, mysql oder was man sonst auswählt. Zu den grundlegenden Funktionen gehören das Steuern und Verwalten von Agenten, den C4-Server Komponenten, der Datenbank, aber auch Verschlüsselungs-Operationen sowie der Verwaltung der Schlüssel und/oder Zertifikaten. Die Passive sowie Aktive Aufklärung soll nicht nur ermöglicht werden, sondern auch die Logistik der Infos und Daten. Nebenbei ist ein Ziel, die ganze Steuerung von Malware wie Rootkits, Trojaner, Viren, Würmer zu erstellen, zu überführen aber auch das Remote-System aus der Ferne zu verwalten.</p>
+        </div>
+    </div>
+
+    <div class="connections">
+        <h2>Übersicht der Verbindungen</h2>
+        <ul id="connections-list">
+            <!-- Dynamically filled list of connections -->
+        </ul>
+    </div>
+
+    <div class="status">
+        <h2>Systemstatus</h2>
+        <p>Apache Status: <span id="apache-status">Checking...</span></p>
+        <p>MySQL Status: <span id="mysql-status">Checking...</span></p>
+        <p>SQLite Status: <span id="sqlite-status">Available</span></p>
+        <p>Nginx Status: <span id="nginx-status">Checking...</span></p>
+    </div>
+
+    <div class="agent-status">
+    <h2>Agenten Status</h2>
+    <div class="status-grid">
+        <div>
+            <p>Verbunden Agenten: <span id="connected-agents">5</span></p>
+            <p>Verlorene Agenten: <span id="lost-agents">2</span></p>
+            <p>Verschlüsselte Agenten: <span id="encrypted-agents">3</span></p>
+        </div>
+        <div>
+            <p>Einnahmen: <span id="income">4 BTC</span></p>
+            <p>Offene Beträge: <span id="pending-payments">1 BTC</span></p>
+            <p>Aktueller Wallet Bestand: <span id="wallet-balance">10 BTC</span></p>
+        </div>
+        <div>
+            <p>Aktueller Standort: <span id="current-location">Berlin, DE</span></p>
+            <p>Lokale IP: <span id="local-ip">192.168.1.10</span></p>
+            <p>Externe IP: <span id="external-ip">85.214.132.117</span></p>
+            <p>DNS: <span id="dns">8.8.8.8</span></p>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        function checkStatus() {
+            fetch('/api/status/apache')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('apache-status').textContent = data.status;
+                });
+
+            fetch('/api/status/mysql')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('mysql-status').textContent = data.status;
+                });
+
+            fetch('/api/status/nginx')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('nginx-status').textContent = data.status;
+                });
+        }
+
+        function loadConnections() {
+            fetch('/api/connections')
+                .then(response => response.json())
+                .then(data => {
+                    const list = document.getElementById('connections-list');
+                    list.innerHTML = '';
+                    data.forEach(connection => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${connection.component_name} -> ${connection.agent_name}: ${connection.status}`;
+                        list.appendChild(listItem);
+                    });
+                });
+        }
+
+        window.onload = function() {
+            checkStatus();
+            loadConnections();
+        };
+    </script>
+</body>
+
+</html>

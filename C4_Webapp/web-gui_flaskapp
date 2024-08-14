@@ -1,0 +1,20 @@
+from flask import Flask, render_template, jsonify, request
+
+app = Flask(__name__)
+
+stored_keys = []  # Beispiel für gespeicherte Schlüssel
+
+@app.route('/api/keys', methods=['GET', 'POST'])
+def api_keys():
+    if request.method == 'GET':
+        return jsonify({'keys': stored_keys})
+    elif request.method == 'POST':
+        key = request.json.get('key')
+        if key:
+            stored_keys.append(key)
+            return jsonify({'message': 'Key added successfully'})
+        else:
+            return jsonify({'error': 'Invalid request'}), 400
+
+if __name__ == '__main__':
+    app.run(debug=True)

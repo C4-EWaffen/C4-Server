@@ -1,0 +1,67 @@
+body {
+    background-color: black;
+    color: limegreen;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    margin-bottom: 20px;
+    text-align: left; /* Left-align the title */
+}
+
+.logo {
+    width: 400px; /* Adjust the size as needed */
+}
+
+p {
+    text-align: center;
+}
+
+nav {
+    margin-top: 20px;
+    background-color: #4B5320; /* Camouflage green background for the menu */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav a {
+    margin: 0 10px;
+    color: limegreen;
+    text-decoration: none;
+}
+
+.agent-status, .wallet-management, .agents-hosts {
+    margin-top: 30px;
+    background-color: #222;
+    padding: 15px;
+    border-radius: 8px;
+    width: 80%;
+}
+
+.status-grid, .wallet-grid, table {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid limegreen;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #333;
+}

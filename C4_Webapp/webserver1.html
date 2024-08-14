@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C4-Start</title>
+    <style>
+        body {
+            background-color: black;
+            color: limegreen;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4B5320;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>C4-Server Status</h1>
+    <div class="status">
+        <p>Apache Status: <span id="apache-status">Checking...</span></p>
+        <p>MySQL Status: <span id="mysql-status">Checking...</span></p>
+        <p>SQLite Status: <span id="sqlite-status">Available</span></p>
+        <p>Nginx Status: <span id="nginx-status">Checking...</span></p>
+    </div>
+
+    <script>
+        // JavaScript to check server statuses
+        function checkStatus() {
+            // Example: Fetch statuses from the backend (assuming a REST API exists)
+            fetch('/api/status/apache')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('apache-status').textContent = data.status;
+                });
+
+            fetch('/api/status/mysql')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('mysql-status').textContent = data.status;
+                });
+
+            fetch('/api/status/nginx')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('nginx-status').textContent = data.status;
+                });
+        }
+
+        // Run the status check on page load
+        window.onload = checkStatus;
+    </script>
+</body>
+</html>
