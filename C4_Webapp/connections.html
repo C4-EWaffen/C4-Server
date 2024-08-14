@@ -1,66 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connections and Information</title>
+    <title>Network & Connections</title>
     <style>
         body {
             background-color: black;
             color: limegreen;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px; /* Add padding to separate content from the edges */
         }
-
-        h2 {
-            text-align: left; /* Left-align the heading */
+        h1 {
+            margin-bottom: 20px;
         }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        .connections {
             margin-top: 20px;
-        }
-
-        th, td {
-            border: 1px solid limegreen;
-            padding: 8px;
-            text-align: left;
+            padding: 10px;
+            background-color: #4B5320;
+            border-radius: 5px;
         }
     </style>
 </head>
-
 <body>
-    <h2>Connections and Information</h2>
+    <h1>Network & Connections</h1>
+    <div class="connections">
+        <ul id="connections-list">
+            <!-- Dynamically filled list of connections -->
+        </ul>
+    </div>
 
-    <!-- Add your content here, e.g., tables or information about connections -->
+    <script>
+        function loadConnections() {
+            fetch('/api/connections')
+                .then(response => response.json())
+                .then(data => {
+                    const list = document.getElementById('connections-list');
+                    list.innerHTML = '';
+                    data.forEach(connection => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${connection.component_name} -> ${connection.agent_name}: ${connection.status}`;
+                        list.appendChild(listItem);
+                    });
+                });
+        }
 
-    <table>
-        <tr>
-            <th>Hostname</th>
-            <th>IP Address</th>
-            <th>Location</th>
-        </tr>
-        <tr>
-            <td>Host1</td>
-            <td>192.168.1.1</td>
-            <td>City1</td>
-        </tr>
-        <tr>
-            <td>Host2</td>
-            <td>192.168.1.2</td>
-            <td>City2</td>
-        </tr>
-        <!-- Add more rows as needed -->
-    </table>
-
-    <footer>
-        <p>Contact Information:</p>
-        <!-- Add your contact information here -->
-        <p>Email: your@email.com</p>
-    </footer>
+        window.onload = loadConnections;
+    </script>
 </body>
-
 </html>
