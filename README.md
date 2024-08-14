@@ -12,7 +12,7 @@ Einfacher Script, welcher unterschiedliche Server startet und den Zugriff auf di
 
 Die Verschiedenen Server werden mittels c4_server.py gestartet, wenn sie noch nicht installiert sind. Es sollte wieder eine Terminal Version und eine GUI-Anwendung vorhanden sein, um die Server Verknüpfungen zu erstellen und Verwalten. 
 
-## C4-Server_Initialisierung
+# C4-Server_Initialisierung
 ### c4-server_init.sh
 
 Automatische Server installation und Bereitschaft. 
@@ -23,7 +23,20 @@ Start der Installation.
 - sudo apt update -y
 - sudo apt full-upgrade -y
 
-### C4-Server Starten
+## C4-Server Starten
+- Verbindungen
+- Webserver
+- Datenbank
+- 
+
+
+### Terminal 
 Mit dem Punkt 2 in der Auswahl, kann die Umgebung gestartet werden. 
 
 Über der IP-ADRESSE/Hostname:5000 kann mittels Browser auf die C4-WebAnwendungen zugegriffen werden. 
+
+### Python Anwendung
+Python Anwendung mit GUI, welche die ganze C4-Umgebung mittels Button starten und stoppen kann, aber auch die einzelnen Server komponenten. Die Verschlüsselung soll mittels Import und Export von Zertifikaten ermöglicht werden, und durch config Dateien der aufbau von Tunneln zu Remote-Systemen. 
+
+# Der C4-Webserver
+![himars](https://github.com/user-attachments/assets/c3189d09-1f51-45c9-a05b-7c4cc95982ab)
