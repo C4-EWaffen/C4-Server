@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C4-Krypto</title>
+<style>
+body {
+	background-color: #202020;
+	color: #E0E0E0;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+header {
+	background-color: #333333;
+	width: 100%;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo {
+	width: 100px;
+	height: auto;
+	margin-right: 20px;
+}
+
+h1 {
+	color: #1A73E8;
+	font-size: 36px;
+}
+
+nav {
+	background-color: #1A73E8;
+	width: 100%;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+nav a {
+	margin: 0 15px;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.content {
+	background-color: #2D2D2D;
+	border-radius: 8px;
+	padding: 20px;
+	width: 90%;
+	max-width: 1200px;
+	flex: 1;
+	overflow-y: auto;
+}
+
+.section {
+	margin-bottom: 20px;
+}
+
+.section h2 {
+	color: #4CAF50;
+	margin-bottom: 10px;
+}
+
+.section p {
+	margin-bottom: 10px;
+}
+
+.button {
+	background-color: #1A73E8;
+	color: white;
+	padding: 8px 16px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: #0056b3;
+}
+
+input[type="text"], input[type="password"], input[type="file"], textarea {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #4CAF50;
+	border-radius: 4px;
+	background-color: #2D2D2D;
+	color: #E0E0E0;
+}
+</style>
+</head>
+
+<body>
+<header>
+<img class="logo" src="ransomware.png" alt="C4-Ransomware Logo">
+<h1>C4 Krypto-Area</h1>
+</header>
+
+<nav>
+<a href="main.html">Start</a>
+<a href="c4-config.html">C4-Konfig</a>
+<a href="connections.html">Network&Connections</a>
+<a href="krypto.html">C4 Krypto-Area</a>
+<a href="c4-agents.html">C4-Agents</a>
+<a href="recon.html">Aufklärung</a>
+<a href="software-kits.html">C4-SoftwareKITs</a>
+</nav>
+
+<div class="content">
+
+<!-- Symmetrische Verschlüsselung -->
+<div class="section" id="symmetric-encryption">
+<h2>Symmetrische Verschlüsselung</h2>
+<p>Erstellen und verwalten Sie symmetrische Schlüssel. Diese Schlüssel werden sowohl für die Verschlüsselung als auch für die Entschlüsselung verwendet.</p>
+<input type="text" placeholder="Symmetrischer Schlüssel">
+<button class="button">Schlüssel generieren</button>
+<button class="button">Datei verschlüsseln</button>
+<button class="button">Datei entschlüsseln</button>
+</div>
+
+<!-- Asymmetrische Verschlüsselung -->
+<div class="section" id="asymmetric-encryption">
+<h2>Asymmetrische Verschlüsselung</h2>
+<p>Erstellen und verwalten Sie Schlüsselpaare für die asymmetrische Verschlüsselung. Ein öffentlicher Schlüssel wird zum Verschlüsseln verwendet, und ein privater Schlüssel wird zum Entschlüsseln verwendet.</p>
+<input type="text" placeholder="Öffentlicher Schlüssel">
+<input type="text" placeholder="Privater Schlüssel">
+<button class="button">Schlüsselpaar generieren</button>
+<button class="button">Datei signieren</button>
+<button class="button">Datei verifizieren</button>
+</div>
+
+<!-- Hybride Verschlüsselung -->
+<div class="section" id="hybrid-encryption">
+<h2>Hybride Verschlüsselung</h2>
+<p>Verwenden Sie eine Kombination aus symmetrischer und asymmetrischer Verschlüsselung, um eine starke Sicherheit zu gewährleisten. Verschlüsseln Sie symmetrische Schlüssel mit einem asymmetrischen Schlüssel.</p>
+<textarea placeholder="Hybrider Schlüssel"></textarea>
+<button class="button">Hybriden Schlüssel generieren</button>
+<button class="button">Symmetrischen Schlüssel verschlüsseln</button>
+<button class="button">Symmetrischen Schlüssel entschlüsseln</button>
+</div>
+
+<!-- Schlüsselverwaltung -->
+<div class="section" id="key-management">
+<h2>Schlüsselverwaltung</h2>
+<p>Verwalten Sie Ihre Schlüsselpaare und Zertifikate. Importieren oder exportieren Sie Schlüssel, und führen Sie Signaturen durch.</p>
+<input type="file" placeholder="Schlüssel importieren">
+<button class="button">Schlüssel importieren</button>
+<button class="button">Schlüssel exportieren</button>
+</div>
+
+</div>
+
+</body>
+
+</html>

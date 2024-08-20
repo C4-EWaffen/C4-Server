@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netzwerk</title>
+<style>
+body {
+	background-color: #202020;
+	color: #E0E0E0;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+header {
+	background-color: #333333;
+	width: 100%;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center; /* Zentrierte Ausrichtung */
+}
+
+.logo {
+	width: 100px;
+	height: auto;
+	margin-right: 20px;
+}
+
+h1 {
+	color: #1A73E8;
+	font-size: 36px;
+}
+
+nav {
+	background-color: #1A73E8;
+	width: 100%;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+nav a {
+	margin: 0 15px;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.content {
+	background-color: #2D2D2D;
+	border-radius: 8px;
+	padding: 20px;
+	width: 90%;
+	max-width: 1200px;
+	flex: 1; /* Damit der Inhalt den verfügbaren Raum ausfüllt */
+	overflow-y: auto;
+}
+
+.section {
+	margin-top: 20px;
+	padding: 20px;
+	background-color: #3C3C3C;
+	border-radius: 8px;
+}
+
+h2 {
+	color: #1A73E8;
+	font-size: 24px;
+}
+
+h3 {
+	color: #4CAF50;
+	font-size: 20px;
+}
+
+.connection-form, .mail-logger-form {
+	margin-bottom: 20px;
+}
+
+input[type="text"], input[type="file"], input[type="submit"] {
+	padding: 10px;
+	margin-top: 10px;
+	border-radius: 4px;
+	border: 1px solid #4CAF50;
+	background-color: #2D2D2D;
+	color: #E0E0E0;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+textarea {
+	padding: 10px;
+	margin-top: 10px;
+	border-radius: 4px;
+	border: 1px solid #4CAF50;
+	background-color: #2D2D2D;
+	color: #E0E0E0;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+table, th, td {
+	border: 1px solid #4CAF50;
+}
+
+th, td {
+	padding: 10px;
+	text-align: left;
+}
+
+th {
+	background-color: #4CAF50;
+	color: white;
+}
+
+td {
+	background-color: #2D2D2D;
+}
+
+.button {
+	background-color: #1A73E8;
+	color: white;
+	padding: 8px 16px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+.button:hover {
+	background-color: #0056b3;
+}
+
+footer {
+	margin-top: 20px;
+	font-size: 12px;
+	color: #B0B0B0;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+</style>
+</head>
+
+<body>
+<header>
+<img class="logo" src="logo-ssh.png" alt="SSH Logo">
+<h1>Network</h1>
+</header>
+
+<nav>
+<a href="main.html">Start</a>
+<a href="c4-config.html">C4-Konfig</a>
+<a href="connections.html">Connections</a>
+<a href="krypto.html">C4 Krypto-Area</a>
+<a href="software-kits.html">C4-KITs</a>
+<a href="recon.html">Aufklärung</a>
+<a href="recon.html">Network</a>
+<a href="c4-agents.html">C4-Agents</a>
+</nav>
+
+<div class="content">
+<!-- Verbindungsformulare für verschiedene Protokolle -->
+<div class="section">
+<h2>Verbindungseinstellungen</h2>
+
+<div class="connection-form">
+<h3>SSH</h3>
+<input type="text" placeholder="Server-IP" id="ssh-ip">
+<input type="text" placeholder="Port (Standard: 22)" id="ssh-port">
+<input type="text" placeholder="Benutzername" id="ssh-username">
+<input type="text" placeholder="Passwort" id="ssh-password">
+<input type="submit" value="Verbindung herstellen">
+</div>
+
+<div class="connection-form">
+<h3>FTP</h3>
+<input type="text" placeholder="Server-IP" id="ftp-ip">
+<input type="text" placeholder="Port (Standard: 21)" id="ftp-port">
+<input type="text" placeholder="Benutzername" id="ftp-username">
+<input type="text" placeholder="Passwort" id="ftp-password">
+<input type="submit" value="Verbindung herstellen">
+</div>
+
+<div class="connection-form">
+<h3>HTTP/HTTPS</h3>
+<input type="text" placeholder="Server-IP" id="http-ip">
+<input type="text" placeholder="Port (Standard: 80 für HTTP, 443 für HTTPS)" id="http-port">
+<input type="submit" value="Verbindung herstellen">
+</div>
+
+<div class="connection-form">
+<h3>FTPS</h3>
+<input type="text" placeholder="Server-IP" id="ftps-ip">
+<input type="text" placeholder="Port" id="ftps-port">
+<input type="text" placeholder="Benutzername" id="ftps-username">
+<input type="text" placeholder="Passwort" id="ftps-password">
+<input type="submit" value="Verbindung herstellen">
+</div>
+
+<div class="connection-form">
+<h3>SMB</h3>
+<input type="text" placeholder="Server-IP" id="smb-ip">
+<input type="text" placeholder="Port" id="smb-port">
+<input type="text" placeholder="Benutzername" id="smb-username">
+<input type="text" placeholder="Passwort" id="smb-password">
+<input type="submit" value="Verbindung herstellen">
+</div>
+</div>
+
+<!-- Status und Systeminfos-Tabelle -->
+<div class="section">
+<h2>Verbindungsliste</h2>
+<table>
+<thead>
+<tr>
+<th>Protokoll</th>
+<th>Server-IP</th>
+<th>Port</th>
+<th>Status</th>
+<th>Systeminfos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSH</td>
+<td>192.168.1.10</td>
+<td>22</td>
+<td>Verbunden</td>
+<td>Linux Server, Ubuntu 20.04</td>
+</tr>
+<tr>
+<td>FTP</td>
+<td>192.168.1.11</td>
+<td>21</td>
+<td>Trennen</td>
+<td>Windows Server 2019</td>
+</tr>
+<!-- Weitere Zeilen hier -->
+</tbody>
+</table>
+</div>
+
+<!-- SMTP Mail Logger -->
+<div class="section">
+<h2>SMTP Mail Logger</h2>
+<form class="mail-logger-form">
+<h3>Postfach Daten eingeben</h3>
+<input type="text" placeholder="SMTP-Server" id="smtp-server">
+<input type="text" placeholder="Port (Standard: 587)" id="smtp-port">
+<input type="text" placeholder="Benutzername" id="smtp-username">
+<input type="text" placeholder="Passwort" id="smtp-password">
+<input type="submit" value="Mail-Logger starten">
+</form>
+
+<form class="mail-logger-form">
+<h3>File Upload (Anmeldedaten)</h3>
+<input type="file" id="file-upload">
+<input type="submit" value="Daten verarbeiten">
+</form>
+
+<!-- Tabelle der E-Mail-Konten -->
+<div class="section">
+<h3>Liste der E-Mail-Konten</h3>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Port</th>
+<th>Benutzername</th>
+<th>Passwort</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>example.com</td>
+<td>587</td>
+<td>example-user@example.com</td>
+<td>P@$$w0rd</td>
+<td>Erfolgreich</td>
+</tr>
+<!-- Weitere Zeilen hier -->
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- VPN-Verbindungen -->
+<div class="section" id="vpn-connections">
+<h2>VPN-Verbindungen</h2>
+<p>Verwalten Sie VPN-Verbindungen für OpenVPN, Tailscale und WireGuard. Importieren und exportieren Sie Konfigurationsdateien, und stellen Sie VPN-Verbindungen für die gesamte Software, die Umgebung, den Server und die Agenten her.</p>
+<select>
+<option value="openvpn">OpenVPN</option>
+<option value="tailscale">Tailscale</option>
+<option value="wireguard">WireGuard</option>
+</select>
+<button class="button">VPN-Verbindung aufbauen</button>
+<input type="file" placeholder="Konfigurationsdatei importieren">
+<button class="button">Konfigurationsdatei importieren</button>
+<button class="button">Konfigurationsdatei exportieren</button>
+
+<!-- VPN-Server und -Client Liste -->
+<table>
+<thead>
+<tr>
+<th>Typ</th>
+<th>Name</th>
+<th>IP/Hostname</th>
+<th>Status</th>
+<th>Aktionen</th>
+</tr>
+</thead>
+<tbody>
+<!-- Beispielzeile -->
+<tr>
+<td>Server</td>
+<td>VPN-Server 1</td>
+<td>192.168.1.1</td>
+<td>Aktiv</td>
+<td><button class="button">Trennen</button></td>
+</tr>
+<tr>
+<td>Client</td>
+<td>VPN-Client 1</td>
+<td>192.168.1.100</td>
+<td>Verbunden</td>
+<td><button class="button">Trennen</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- Proxy- und Reverse-Proxy-Verwaltung -->
+<div class="section" id="proxy-management">
+<h2>Proxy- und Reverse-Proxy-Verwaltung</h2>
+<p>Verwalten Sie Proxy- und Reverse-Proxy-Server wie nginx und evilginx. Konfigurieren Sie Proxy-Einstellungen und verwalten Sie aktive Verbindungen.</p>
+<textarea placeholder="Proxy-Konfiguration"></textarea>
+<button class="button">Proxy anwenden</button>
+<table>
+<thead>
+<tr>
+<th>Typ</th>
+<th>Name</th>
+<th>IP/Hostname</th>
+<th>Status</th>
+<th>Aktionen</th>
+</tr>
+</thead>
+<tbody>
+<!-- Beispielzeile -->
+<tr>
+<td>Reverse Proxy</td>
+<td>nginx Proxy</td>
+<td>192.168.1.2</td>
+<td>Aktiv</td>
+<td><button class="button">Deaktivieren</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- Maillogger -->
+<div class="section" id="mail-logger">
+<h2>Mail-Logger</h2>
+<p>Überwachen Sie das ausgewählte Mailkonto und Postfach. Senden und empfangen Sie verschlüsselte E-Mails.</p>
+<input type="text" placeholder="Mailkonto">
+<textarea placeholder="Postfachinhalt"></textarea>
+<input type="text" placeholder="Betreff">
+<textarea placeholder="Nachricht"></textarea>
+<button class="button">E-Mail senden</button>
+<button class="button">E-Mail empfangen</button>
+</div>
+</div>
+
+<footer>
+
+</footer>
+
+</body>
+</html>

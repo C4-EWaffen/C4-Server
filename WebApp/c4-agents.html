@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C4-Agents</title>
+<style>
+body {
+	background-color: #202020;
+	color: #E0E0E0;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+header {
+	background-color: #333333;
+	width: 100%;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo {
+	width: 100px;
+	height: auto;
+	margin-right: 20px;
+}
+
+h1 {
+	color: #1A73E8;
+	font-size: 36px;
+}
+
+nav {
+	background-color: #1A73E8;
+	width: 100%;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+nav a {
+	margin: 0 15px;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.content {
+	background-color: #2D2D2D;
+	border-radius: 8px;
+	padding: 20px;
+	width: 90%;
+	max-width: 1200px;
+	flex: 1;
+}
+
+.table-container {
+	margin-top: 20px;
+	padding: 20px;
+	background-color: #3C3C3C;
+	border-radius: 8px;
+	overflow-x: auto;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table, th, td {
+	border: 1px solid #4CAF50;
+}
+
+th, td {
+	padding: 8px;
+	text-align: left;
+	font-size: 14px;
+	height: 40px; /* Festlegen einer festen Zeilenhöhe */
+	vertical-align: middle; /* Vertikale Ausrichtung */
+}
+
+th {
+	background-color: #4CAF50;
+	color: white;
+}
+
+td {
+	background-color: #2D2D2D;
+}
+
+.os-icon {
+	width: 20px;
+	height: 20px;
+	margin-right: 8px;
+}
+
+.os-cell {
+	display: flex;
+	align-items: center;
+	width: 150px;
+}
+
+.os-details {
+	display: flex;
+	flex-direction: column;
+}
+
+.os-name {
+	color: #FFFFFF;
+	font-size: 12px;
+}
+
+.os-agent {
+	color: #CCCCCC;
+	font-size: 10px;
+}
+
+.actions {
+	display: flex;
+	gap: 8px;
+}
+
+.button {
+	background-color: #1A73E8;
+	color: white;
+	padding: 6px 12px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+.button:hover {
+	background-color: #0056b3;
+}
+</style>
+</head>
+
+<body>
+<header>
+<img class="logo" src="logo-agents.png" alt="C4-Agents Logo">
+<h1>C4-Agents</h1>
+</header>
+
+<nav>
+<a href="main.html">Start</a>
+<a href="c4-config.html">C4-Konfig</a>
+<a href="connections.html">Network & Connections</a>
+<a href="crypto.html">C4 Krypto-Area</a>
+<a href="c4-agents.html">C4-Agents</a>
+<a href="recon.html">Aufklärung</a>
+<a href="software-kits.html">C4-SoftwareKITs</a>
+</nav>
+
+<div class="content">
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>OS</th>
+<th>Agent</th>
+<th>User@Host:Port</th>
+<th>Private IP-Adresse</th>
+<th>Öffentliche IP-Adresse</th>
+<th>Status</th>
+<th>Aktionen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="os-cell">
+<img class="os-icon" src="logo_linux.png" alt="Linux Icon">
+<div class="os-details">
+<span class="os-name">Linux</span>
+</div>
+</td>
+<td>Agent 1</td>
+<td>user@192.168.1.3:22</td>
+<td>192.168.1.3</td>
+<td>203.0.113.8</td>
+<td>Aktiv</td>
+<td class="actions">
+<button class="button" onclick="sendFile()">Datei senden</button>
+<button class="button" onclick="executeFile()">Datei ausführen</button>
+<button class="button" onclick="autoLazagne()">Lazagne Automatisieren</button>
+<button class="button" onclick="reboot()">Reboot</button>
+<button class="button" onclick="shutdown()">Shutdown</button>
+<button class="button" onclick="gatherInfo()">Infos sammeln</button>
+</td>
+</tr>
+<tr>
+<td class="os-cell">
+<img class="os-icon" src="windows_95_vector.png" alt="Windows Icon">
+<div class="os-details">
+<span class="os-name">Windows</span>
+</div>
+</td>
+<td>Agent 2</td>
+<td>admin@192.168.1.4:3389</td>
+<td>192.168.1.4</td>
+<td>203.0.113.9</td>
+<td>Inaktiv</td>
+<td class="actions">
+<button class="button" onclick="sendFile()">Datei senden</button>
+<button class="button" onclick="executeFile()">Datei ausführen</button>
+<button class="button" onclick="autoLazagne()">Lazagne Automatisieren</button>
+<button class="button" onclick="reboot()">Reboot</button>
+<button class="button" onclick="shutdown()">Shutdown</button>
+<button class="button" onclick="gatherInfo()">Infos sammeln</button>
+</td>
+</tr>
+<!-- Weitere Agenten hier -->
+</tbody>
+</table>
+</div>
+</div>
+
+<script>
+// Beispiel-Methoden für die Aktionen
+function sendFile() {
+	alert("Datei an Agenten senden");
+}
+
+function executeFile() {
+	alert("Datei auf Remote ausführen");
+}
+
+function autoLazagne() {
+	alert("Lazagne Automatisieren");
+}
+
+function reboot() {
+	alert("Agent rebooten");
+}
+
+function shutdown() {
+	alert("Agent herunterfahren");
+}
+
+function gatherInfo() {
+	alert("Informationen sammeln");
+}
+</script>
+
+</body>
+
+</html>

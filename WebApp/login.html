@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C4-Login</title>
+<style>
+body {
+	background-color: #202020;
+	color: #E0E0E0;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+.container {
+	background-color: #333333;
+	border-radius: 8px;
+	padding: 20px;
+	width: 100%;
+	max-width: 400px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+	color: #1A73E8;
+	font-size: 24px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	color: #E0E0E0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="text"] {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #4CAF50;
+	border-radius: 4px;
+	background-color: #2D2D2D;
+	color: #E0E0E0;
+}
+
+button {
+	width: 100%;
+	padding: 10px;
+	border: none;
+	border-radius: 4px;
+	background-color: #1A73E8;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #0056b3;
+}
+
+.forgot-password {
+	display: block;
+	margin-top: 10px;
+	text-align: center;
+	color: #1A73E8;
+	text-decoration: none;
+}
+
+.forgot-password:hover {
+	text-decoration: underline;
+}
+
+.otp-container,
+.recovery-container {
+	display: none;
+	margin-top: 20px;
+}
+
+footer {
+	margin-top: 20px;
+	font-size: 12px;
+	color: #B0B0B0;
+	text-align: center;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<h1>C4-Login</h1>
+
+<!-- Login-Formular -->
+<form id="login-form">
+<label for="username">Benutzername</label>
+<input type="text" id="username" name="username" required>
+
+<label for="password">Passwort</label>
+<input type="password" id="password" name="password" required>
+
+<button type="submit">Anmelden</button>
+</form>
+
+<!-- 2FA-Formular -->
+<div class="otp-container" id="otp-container">
+<h2>Zwei-Faktor-Authentifizierung</h2>
+<label for="otp">Geben Sie den Code ein, den Sie auf Ihrem Gerät erhalten haben</label>
+<input type="text" id="otp" name="otp" required>
+<button type="submit">Bestätigen</button>
+</div>
+
+<!-- Passwort-Wiederherstellung -->
+<div class="recovery-container" id="recovery-container">
+<h2>Passwort zurücksetzen</h2>
+<label for="recovery-email">E-Mail-Adresse</label>
+<input type="email" id="recovery-email" name="recovery-email" required>
+
+<label for="recovery-key">Wiederherstellungsschlüssel</label>
+<input type="text" id="recovery-key" name="recovery-key" required>
+
+<button type="submit">Passwort zurücksetzen</button>
+</div>
+
+<a href="#" class="forgot-password" onclick="showRecovery()">Passwort vergessen?</a>
+</div>
+
+<script>
+// Beispiel-JavaScript für die Anzeige der 2FA und Passwort-Wiederherstellung
+document.getElementById('login-form').addEventListener('submit', function(event) {
+	event.preventDefault();
+	// Hier könnten Sie die 2FA aktivieren
+	document.getElementById('otp-container').style.display = 'block';
+	document.getElementById('login-form').style.display = 'none';
+});
+
+function showRecovery() {
+	document.getElementById('recovery-container').style.display = 'block';
+	document.getElementById('login-form').style.display = 'none';
+	document.getElementById('otp-container').style.display = 'none';
+}
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C4-Server</title>
+<style>
+body {
+	background-color: #202020;
+	color: #E0E0E0;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+header {
+	background-color: #333333;
+	width: 100%;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center; /* Zentrierte Ausrichtung */
+}
+
+.logo {
+	width: 100px;
+	height: auto;
+	margin-right: 20px;
+}
+
+h1 {
+	color: #1A73E8;
+	font-size: 36px;
+}
+
+nav {
+	background-color: #1A73E8;
+	width: 100%;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+nav a {
+	margin: 0 15px;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.content {
+	background-color: #2D2D2D;
+	border-radius: 8px;
+	padding: 20px;
+	width: 90%;
+	max-width: 1200px;
+	flex: 1; /* Damit der Inhalt den verfügbaren Raum ausfüllt */
+}
+
+.status-container {
+	margin-top: 20px;
+	padding: 20px;
+	background-color: #3C3C3C;
+	border-radius: 8px;
+}
+
+.status {
+	font-size: 18px;
+	margin-bottom: 10px;
+	padding: 10px;
+	border-radius: 4px;
+}
+
+.status.success {
+	background-color: #4CAF50;
+	color: #FFFFFF;
+}
+
+.status.error {
+	background-color: #F44336;
+	color: #FFFFFF;
+}
+
+.agent-stats, .wallet-info, .vpn-info, .location-info {
+	margin-top: 20px;
+	padding: 20px;
+	background-color: #3C3C3C;
+	border-radius: 8px;
+}
+
+.agent-stats h2, .wallet-info h2, .vpn-info h2, .location-info h2 {
+	color: #1A73E8;
+	font-size: 24px;
+}
+
+footer {
+	margin-top: 20px;
+	font-size: 12px;
+	color: #B0B0B0;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+#map {
+margin-top: 20px;
+width: 100%;
+height: 300px;
+background: #2D2D2D;
+}
+
+#map img {
+width: 100%;
+height: auto;
+}
+</style>
+</head>
+
+<body>
+<header>
+<img class="logo" src="server-icon.png" alt="Server-Rack Logo">
+<h1>C4-Server</h1>
+</header>
+
+<nav>
+<a href="main.html">Start</a>
+<a href="c4-config.html">C4-Konfig</a>
+<a href="connections.html">Network&Connections</a>
+<a href="krypto.html">C4 Krypto-Area</a>
+<a href="c4-agents.html">C4-Agents</a>
+<a href="recon.html">Aufklärung</a>
+<a href="software-kits.html">C4-SoftwareKITs</a>
+</nav>
+
+<div class="content">
+
+<div class="status-container">
+<div class="status success" id="server-status">Webserver: Running</div>
+<div class="status error" id="database-status">Datenbank: Stopped</div>
+<!-- Weitere Statusanzeigen hier -->
+</div>
+
+<!-- Agenten Statistik -->
+<div class="agent-stats">
+<h2>Botnetz Statistik</h2>
+<p>Anzahl der verbundenen Agenten: <span id="connected-agents">42</span></p>
+<p>Anzahl der verbundenen C&C-Server: <span id="connected-server">42</span></p>
+<p>Anzahl der Benutzerrechte (Root): <span id="root-rights">5</span></p>
+<p>Anzahl der Benutzerrechte (Admin): <span id="admin-rights">12</span></p>
+<p>Anzahl der verschlüsselten Verbindungen: <span id="encrypted-connections">78</span></p>
+</div>
+
+<!-- Wallet Informationen -->
+<div class="wallet-info">
+<h2>Wallet Informationen</h2>
+<p>Status Wallet Verbindung: <span id="wallet-status">Verbunden</span></p>
+<p>Aktueller Kontostand: <span id="wallet-balance">1.234,56 €</span></p>
+<p>Anzahl der ausstehenden offenen Zahlungen: <span id="pending-payments">3</span></p>
+</div>
+
+<!-- VPN Informationen -->
+<div class="vpn-info">
+<h2>VPN Informationen</h2>
+<p>VPN Status: <span id="vpn-status">Aktiv</span></p>
+<p>Verbindungsstatus: <span id="vpn-connection-status">Verbunden</span></p>
+</div>
+
+<!-- Standort Informationen -->
+<div class="location-info">
+<h2>Standort Informationen</h2>
+<p>Aktueller Pfad: <span id="current-path">/home/user</span></p>
+<p>Aktueller Standort: <span id="current-location">Berlin, Deutschland</span></p>
+<p>Aktuelle Uhrzeit: <span id="current-time">18:00</span></p>
+
+</div>
+
+<footer>
+<p></p>
+</footer>
+</body>
+
+</html>

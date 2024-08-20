@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C4-Server Konfig</title>
+<style>
+body {
+  background-color: #202020;
+  color: #E0E0E0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  background-color: #333333;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Zentrierte Ausrichtung */
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+h1 {
+  color: #1A73E8;
+  font-size: 36px;
+}
+
+nav {
+  background-color: #1A73E8;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+nav a {
+  margin: 0 15px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.content {
+  background-color: #2D2D2D;
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  max-width: 1200px;
+  flex: 1; /* Damit der Inhalt den verfügbaren Raum ausfüllt */
+}
+
+.status-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #3C3C3C;
+  border-radius: 8px;
+}
+
+.status {
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.status.success {
+  background-color: #4CAF50;
+  color: #FFFFFF;
+}
+
+.status.error {
+  background-color: #F44336;
+  color: #FFFFFF;
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #B0B0B0;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.table-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #3C3C3C;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #4CAF50;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+td {
+  background-color: #2D2D2D;
+}
+
+#map {
+margin-top: 20px;
+width: 100%;
+height: 300px;
+background: #2D2D2D;
+}
+
+#map img {
+width: 100%;
+height: auto;
+}
+</style>
+</head>
+
+<body>
+<header>
+<img class="logo" src="config.png" alt="C4-Konfig Logo">
+<h1>C4-Server Botnetzwerk</h1>
+</header>
+
+<nav>
+<a href="main.html">Start</a>
+<a href="c4-config.html">C4-Konfig</a>
+<a href="connections.html">Network&Connections</a>
+<a href="krypto.html">C4 Krypto-Area</a>
+<a href="c4-agents.html">C4-Agents</a>
+<a href="recon.html">Aufklärung</a>
+<a href="software-kits.html">C4-SoftwareKITs</a>
+</nav>
+<h1>   Botnetz-Operator</h1>
+  <h2>Befehlstand der Streitkräfte.</h2>
+<div class="content">
+
+
+<!-- Hier bitte die Tabelle anzeigen -->
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Gerät</th>
+<th>IP-Adresse</th>
+<th>Status</th>
+<th>Letzter Zugriff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud-Server1</td>
+<td>192.168.1.1</td>
+<td>Aktiv</td>
+<td>2024-08-18 14:00</td>
+</tr>
+<tr>
+<td>Server 2</td>
+<td>192.168.1.2</td>
+<td>Inaktiv</td>
+<td>2024-08-17 12:00</td>
+</tr>
+<!-- Weitere Zeilen hier -->
+</tbody>
+</table>
+</div>
+
+
+
+</div>
+
+<footer>
+<p></p>
+</footer>
+</body>
+
+</html>
